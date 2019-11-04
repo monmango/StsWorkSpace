@@ -1,0 +1,45 @@
+.re_title {
+	font-size: 20px;
+	line-height: 25px;
+	margin-top: 20px
+}
+
+.getinfo {
+	margin-top: 20px
+}
+
+.font_color {
+	color: gray;
+	line-height: 25px;
+	margin-bottom: 10px;
+}
+
+.fastbutton {
+	height: 60px;
+	background-color: #778899;
+	color: white;
+	font-weight: bold;
+}
+
+.w3-button {
+	float: right;
+}
+
+i {
+	border-width: 0px 5px 5px 0;
+	display: inline-block;
+	padding: 7px;
+}
+
+.right {
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+.gu_list {
+	margin-top: 100px;
+}
+
+.row .cell:nth-child(1) {
+	padding-left:100px;
+}

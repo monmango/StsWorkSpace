@@ -1,0 +1,13 @@
+.showPage {
+	visibility: visible;
+	width: 200px;
+	height: 200px;
+	background-color: yellow;
+}
+
+.hidePage {
+	visibility: hidden;
+	widows: 0;
+	height: 0;
+	font-size: 0;
+}

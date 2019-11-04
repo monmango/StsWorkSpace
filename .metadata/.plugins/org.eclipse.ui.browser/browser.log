@@ -1,0 +1,100 @@
+
+8월 22, 2019 14:13:34.71 NEW SESSION
+8월 22, 2019 14:13:34.71 [9656:10048:0822/141334.709:ERROR:browser_process_sub_thread.cc(203)] Waited 129 ms for network service
+
+8월 23, 2019 09:16:19.65 NEW SESSION
+8월 23, 2019 09:16:19.65 [10100:6860:0823/091619.657:ERROR:browser_process_sub_thread.cc(203)] Waited 118 ms for network service
+8월 23, 2019 09:20:23.62 [6892:6628:0823/092023.628:ERROR:browser_process_sub_thread.cc(203)] Waited 135 ms for network service
+8월 23, 2019 09:30:43.16 [7184:10816:0823/093043.166:ERROR:browser_process_sub_thread.cc(203)] Waited 177 ms for network service
+8월 23, 2019 17:46:20.99 [5016:10480:0823/174620.992:ERROR:browser_process_sub_thread.cc(203)] Waited 65 ms for network service
+
+8월 27, 2019 10:16:27.61 NEW SESSION
+8월 27, 2019 10:16:27.61 [3716:4744:0827/101627.601:ERROR:browser_process_sub_thread.cc(203)] Waited 67 ms for network service
+8월 27, 2019 10:17:06.18 [3048:4416:0827/101706.186:ERROR:browser_process_sub_thread.cc(203)] Waited 141 ms for network service
+8월 27, 2019 10:35:58.50 [10624:10364:0827/103558.500:ERROR:browser_process_sub_thread.cc(203)] Waited 156 ms for network service
+8월 27, 2019 13:29:00.29 [10716:9576:0827/132900.290:ERROR:browser_process_sub_thread.cc(203)] Waited 206 ms for network service
+8월 27, 2019 15:42:49.55 [11708:10620:0827/154249.557:ERROR:browser_process_sub_thread.cc(203)] Waited 26 ms for network service
+8월 27, 2019 16:33:13.62 [5896:9192:0827/163313.620:ERROR:browser_process_sub_thread.cc(203)] Waited 39 ms for network service
+8월 27, 2019 17:35:50.45 [5844:4008:0827/173550.455:ERROR:browser_process_sub_thread.cc(203)] Waited 235 ms for network service
+8월 27, 2019 17:50:05.82 [7616:6944:0827/175005.829:ERROR:browser_process_sub_thread.cc(203)] Waited 58 ms for network service
+
+8월 29, 2019 11:24:34.80 NEW SESSION
+8월 29, 2019 11:24:34.80 [9208:8540:0829/112434.806:ERROR:browser_process_sub_thread.cc(203)] Waited 70 ms for network service
+8월 29, 2019 11:33:26.71 [12108:10776:0829/113326.715:ERROR:browser_process_sub_thread.cc(203)] Waited 44 ms for network service
+8월 29, 2019 12:11:06.15 [5912:6292:0829/121106.149:ERROR:browser_process_sub_thread.cc(203)] Waited 143 ms for network service
+8월 29, 2019 12:26:57.85 [6708:10264:0829/122657.858:ERROR:browser_process_sub_thread.cc(203)] Waited 111 ms for network service
+8월 29, 2019 14:58:47.36 [8616:7416:0829/145847.363:ERROR:browser_process_sub_thread.cc(203)] Waited 0 ms for network service
+
+9월 02, 2019 09:08:36.82 NEW SESSION
+9월 02, 2019 09:08:36.82 [5564:7640:0902/090836.820:ERROR:browser_process_sub_thread.cc(203)] Waited 190 ms for network service
+9월 02, 2019 09:26:30.22 [8288:7132:0902/092630.220:ERROR:browser_process_sub_thread.cc(203)] Waited 96 ms for network service
+9월 02, 2019 09:37:09.44 [4684:2472:0902/093709.442:ERROR:browser_process_sub_thread.cc(203)] Waited 67 ms for network service
+9월 02, 2019 10:40:16.07 [7564:10472:0902/104016.072:ERROR:browser_process_sub_thread.cc(203)] Waited 5 ms for network service
+
+9월 02, 2019 11:14:24.98 NEW SESSION
+9월 02, 2019 11:14:24.99 [10888:10028:0902/111424.988:ERROR:browser_process_sub_thread.cc(203)] Waited 28 ms for network service
+
+9월 03, 2019 10:28:32.61 NEW SESSION
+9월 03, 2019 10:28:32.61 [7104:12548:0903/102832.423:ERROR:CONSOLE(742)] "Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('https://www.naver.com') does not match the recipient window's origin ('chrome-search://local-ntp').", source: chrome-search://most-visited/single.js (742)
+9월 03, 2019 10:53:56.31 [7104:7420:0903/105356.310:ERROR:browser_process_sub_thread.cc(203)] Waited 2 ms for network service
+9월 03, 2019 10:53:56.50 
+9월 03, 2019 10:53:56.50 KLIB_SelfTest return : KLR_OK
+
+9월 05, 2019 16:48:59.01 NEW SESSION
+9월 05, 2019 16:48:59.01 [15320:7740:0905/164859.006:ERROR:browser_process_sub_thread.cc(203)] Waited 140 ms for network service
+9월 05, 2019 16:48:59.03 
+9월 05, 2019 16:48:59.03 KLIB_SelfTest return : KLR_OK
+9월 05, 2019 17:46:25.37 [9072:5196:0905/174625.376:ERROR:browser_process_sub_thread.cc(203)] Waited 125 ms for network service
+9월 05, 2019 17:46:25.40 
+9월 05, 2019 17:46:25.40 KLIB_SelfTest return : KLR_OK
+9월 05, 2019 17:56:16.17 [9236:12212:0905/175616.178:ERROR:browser_process_sub_thread.cc(203)] Waited 48 ms for network service
+9월 05, 2019 17:56:16.21 
+9월 05, 2019 17:56:16.21 KLIB_SelfTest return : KLR_OK
+9월 05, 2019 20:42:09.02 [11620:13708:0905/204209.015:ERROR:browser_process_sub_thread.cc(203)] Waited 8 ms for network service
+9월 05, 2019 20:42:09.30 
+9월 05, 2019 20:42:09.30 KLIB_SelfTest return : KLR_OK
+
+9월 16, 2019 09:16:28.96 NEW SESSION
+9월 16, 2019 09:16:28.96 [4816:6636:0916/091628.932:ERROR:browser_process_sub_thread.cc(203)] Waited 144 ms for network service
+9월 16, 2019 09:16:28.97 
+9월 16, 2019 09:16:28.98 KLIB_SelfTest return : KLR_OK
+
+9월 16, 2019 09:27:48.00 NEW SESSION
+9월 16, 2019 09:27:48.00 [7524:10520:0916/092748.000:ERROR:browser_process_sub_thread.cc(203)] Waited 140 ms for network service
+9월 16, 2019 09:27:48.04 
+9월 16, 2019 09:27:48.04 KLIB_SelfTest return : KLR_OK
+9월 16, 2019 09:31:47.29 [11588:8792:0916/093147.296:ERROR:browser_process_sub_thread.cc(203)] Waited 145 ms for network service
+9월 16, 2019 09:31:47.33 
+9월 16, 2019 09:31:47.33 KLIB_SelfTest return : KLR_OK
+9월 16, 2019 09:40:56.93 [4536:8220:0916/094056.934:ERROR:browser_process_sub_thread.cc(203)] Waited 61 ms for network service
+9월 16, 2019 09:40:56.96 
+9월 16, 2019 09:40:56.97 KLIB_SelfTest return : KLR_OK
+9월 16, 2019 09:55:19.60 [2140:1704:0916/095519.607:ERROR:browser_process_sub_thread.cc(203)] Waited 153 ms for network service
+9월 16, 2019 09:55:19.64 
+9월 16, 2019 09:55:19.64 KLIB_SelfTest return : KLR_OK
+9월 16, 2019 13:52:37.91 [8068:1580:0916/135237.896:ERROR:browser_process_sub_thread.cc(203)] Waited 93 ms for network service
+9월 16, 2019 13:52:37.93 
+9월 16, 2019 13:52:37.93 KLIB_SelfTest return : KLR_OK
+9월 16, 2019 13:56:03.02 [3112:10856:0916/135603.025:ERROR:browser_process_sub_thread.cc(203)] Waited 61 ms for network service
+9월 16, 2019 13:56:03.05 
+9월 16, 2019 13:56:03.06 KLIB_SelfTest return : KLR_OK
+
+9월 18, 2019 11:14:04.35 NEW SESSION
+9월 18, 2019 11:14:04.35 [5200:12936:0918/111404.308:ERROR:browser_process_sub_thread.cc(203)] Waited 3 ms for network service
+9월 18, 2019 11:14:04.55 
+9월 18, 2019 11:14:04.55 KLIB_SelfTest return : KLR_OK
+
+9월 24, 2019 18:55:09.77 NEW SESSION
+9월 24, 2019 18:55:09.77 
+9월 24, 2019 18:55:09.78 KLIB_SelfTest return : KLR_OK
+
+9월 26, 2019 11:12:22.05 NEW SESSION
+9월 26, 2019 11:12:22.05 [7556:10980:0926/111222.035:ERROR:CONSOLE(1039)] "Uncaught (in promise) Error: Attempt to remove element containing widget via regular DOM operation", source: devtools://devtools/bundled/shell.js (1039)
+
+9월 26, 2019 13:37:23.09 NEW SESSION
+9월 26, 2019 13:37:23.10 
+9월 26, 2019 13:37:23.10 KLIB_SelfTest return : KLR_OK
+
+9월 27, 2019 17:42:03.27 NEW SESSION
+9월 27, 2019 17:42:03.27 
+9월 27, 2019 17:42:03.27 KLIB_SelfTest return : KLR_OK

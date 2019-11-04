@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="chat">
+	<select id="roomlist" resultType="com.mycompany.gofarm.chat.dto.ChatRoomDTO">
+		select * from chat order by chatcode desc
+	</select>
+	
+	<insert id="createroom" parameterType="com.mycompany.gofarm.chat.dto.ChatRoomDTO">
+		insert into chat
+		values(CHAT_SEQ.nextval, #{usercode}, #{ct_title}, #{ct_limit})
+	</insert>
+	
+	<select id="roominfo" parameterType="int" resultType="com.mycompany.gofarm.chat.dto.ChatRoomDTO">
+		select * from chat where chatcode=#{chatcode}
+	</select>
+	
+	<insert id="insertmsg" parameterType="com.mycompany.gofarm.chat.dto.ChatDTO">
+		insert into chat_cont
+		values(to_date(#{ct_time},'yyyy-mm-dd hh24:mi:ss'),#{chatcode}, #{ct_nickname},#{ct_content})
+	</insert>
+	
+	<select id="dbchat" parameterType="int" resultType="com.mycompany.gofarm.chat.dto.ChatDTO">
+		select * from chat_cont where chatcode=#{chatcode} order by ct_time 
+	</select>
+</mapper>

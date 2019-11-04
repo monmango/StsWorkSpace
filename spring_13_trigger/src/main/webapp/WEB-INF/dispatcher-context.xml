@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+<mvc:annotation-driven></mvc:annotation-driven>
+
+<!-- 1. DataSource빈 선언 -->
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
+	<property name="url" value="jdbc:oracle:thin://@127.0.0.1:1521:xe"></property>
+	<property name="username" value="hr"></property>
+	<property name="password" value="a1234"></property>
+</bean>
+
+<!-- 2. SqlSessionFactoryBean 빈 선언 -->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"></property>
+	<property name="mapperLocations">
+		<list>
+			<value>classpath:config/markerMapper.xml</value>
+		</list>
+	</property>
+</bean>
+
+<!-- 3. SqlSessionTemplate 빈 생성 -->
+<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	<constructor-arg ref="sqlSessionFactory"></constructor-arg>
+</bean>
+
+<!-- 4. TransactionManager 빈 생성 -->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property name="dataSource" ref="dataSource"></property>
+</bean>
+
+<!-- 5. 선언적 트랜잭션: <tx:advice>태그를 이용한 트랜잭션 처리 -->
+<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<tx:attributes>
+		<!-- Process라는 이름으로 끝나는 모든 메소드에 적용,  java.lang.Exception 발생되면 롤백적용 -->
+		<tx:method name="*Process" rollback-for="java.lang.Exception"/>
+		<!-- <tx:method name="deleteProcess" rollback-for="java.lang.NullPointerException"/> -->
+	</tx:attributes>
+</tx:advice>
+
+<!-- 6. 트랜잭션 처리할 메소드에  transactionManager 설정-->
+<aop:config>
+	<aop:advisor advice-ref="txAdvice" pointcut="execution(* service.MarketServiceImp.*Process(..))"/>
+</aop:config>
+
+<!-- 7. DAO 빈 선언 -->
+<bean id="dao" class="dao.MarketDaoImp">
+	<property name="sqlSession" ref="sqlSession"></property>
+</bean>
+
+<!-- 8. Service 빈 선언 -->
+<bean id="service" class="service.MarketServiceImp">
+	<property name="dao" ref="dao"></property>
+</bean>
+
+<!-- 9. Controller 빈 선언 -->
+<bean class="controller.MarketController">
+	<property name="service" ref="service"></property>
+</bean>
+
+<!-- 10. View 빈 선언(첨부파일다운로드 함수에서 BeanName(bean id)을 viewName으로 씀)-->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/WEB-INF/view/"></property>
+	<property name="suffix" value=".jsp"></property>
+</bean>
+
+</beans>

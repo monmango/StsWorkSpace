@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;memMapper.xml&apos; to &apos;spring_test_demo/src/main/java/config&apos;&#x0D;&#x0A;- Original project: &apos;spring_04_jdbc&apos;&#x0D;&#x0A;- Destination element: &apos;spring_test_demo/src/main/java/config&apos;&#x0D;&#x0A;- Original element: &apos;memMapper.xml&apos;" description="Copy file" destination="=spring_test_demo/src\/main\/java&lt;config" element1="src/main/java/part02_mybatis/memMapper.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1568874459110" units="0" version="1.0"/>
+</session>

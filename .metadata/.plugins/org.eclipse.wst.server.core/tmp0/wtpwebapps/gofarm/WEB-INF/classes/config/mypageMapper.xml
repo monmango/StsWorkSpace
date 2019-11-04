@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mypage">
+ 	
+ 	<select id="mileage_list" resultType="com.mycompany.gofarm.mypage.dto.MileageDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select * from mileage where usercode= #{usercode} order by m_day desc
+	]]>
+ 	</select>
+ 	
+ 	<select id="payment_list" resultType="com.mycompany.gofarm.mypage.dto.MileageDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select * from mileage where usercode= #{usercode} and m_content = '마일리지 출금' order by m_day desc
+	]]>
+ 	</select>
+ 	
+ 	<select id="mileage_view" resultType="com.mycompany.gofarm.mypage.dto.MileageDTO"
+ 	 parameterType="int">
+ 		SELECT * FROM mileage WHERE usercode= #{usercode} and m_day = (SELECT MAX(m_day)AS m_day FROM mileage)
+ 	</select>
+ 	
+ 	<insert id="mileage_insert" parameterType="com.mycompany.gofarm.mypage.dto.MileageDTO">
+ 		insert into mileage values(#{usercode},#{m_list},#{m_total}, sysdate, #{m_content})
+ 	</insert>
+ 	
+ 	<update id="mileage_update" parameterType="com.mycompany.gofarm.mypage.dto.MileageDTO">
+ 		update USER_DETAIL set mileage=#{m_total} where usercode=#{usercode}
+ 	</update>
+ 	
+ 	<select id="userDetail_view" resultType="com.mycompany.gofarm.user.dto.UserDTO"
+ 	 parameterType="int">
+ 	 	SELECT * FROM USER_DETAIL WHERE usercode= #{usercode}
+ 	</select>
+ 	
+	<select id="job_view" resultType="com.mycompany.gofarm.job.dto.JobDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select * from job where usercode=#{usercode} order by j_Registration desc
+	]]>
+ 	</select>
+ 	
+ 	<select id="jobSearch_view" resultType="com.mycompany.gofarm.job.dto.JobSearchDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select * from jobsearch where usercode=#{usercode} order by js_registration desc
+	]]>
+ 	</select>
+ 	
+ 	<select id="jobcheck_list" resultType="com.mycompany.gofarm.job.dto.JobDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select a.name j_info, j.job job
+ 		from (select USERCODE, name from users u, jobcheck ch where ch.JK_USERCODE = u.USERCODE and ch.JOBSEARCHCODE=#{JOBSEARCHCODE}) a, job j 
+ 		where a.USERCODE = j.USERCODE
+	]]>
+ 	</select>
+ 	
+ 	<select id="mySell_list" resultType="com.mycompany.gofarm.mypage.dto.MySellDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select b.pd_name pd_name, b.de_date de_date, b.de_cnt de_cnt, b.name name, b.phone phone, ud.USER_HOME USER_HOME, b.prod_code prod_code 
+ 		from (select a.pd_name , a.de_date , a.de_cnt , name, phone, usercode, a.prod_code prod_code 
+ 			from(select pd_name, de_date, de_cnt, de_usercode, p.prod_code prod_code
+ 				from product p, deal d 
+ 				where p.prod_code = d.prod_code and usercode=#{usercode})a, users u 
+ 			where a.de_usercode= u.USERCODE)b, user_detail ud 
+ 		where b.usercode = ud.usercode
+	]]>
+ 	</select>
+ 	
+ 	<select id="myBuy_list" resultType="com.mycompany.gofarm.mypage.dto.MySellDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select pd_d.de_date de_date, pd_d.de_cnt de_cnt, pd_d.pd_name pd_name, pd_d.prod_code prod_code, u.name name, u.phone phone
+		from (select d.de_date de_date, d.de_cnt de_cnt, pd.pd_name pd_name, pd.usercode usercode, d.prod_code prod_code 
+			from deal d, product pd 
+			where d.prod_code=pd.prod_code and de_usercode=#{usercode})pd_d, users u
+		where pd_d.usercode=u.usercode
+	]]>
+ 	</select>
+ 	
+ 	<select id="myAuction_list" resultType="com.mycompany.gofarm.mypage.dto.MyAuctionDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select a.au_name au_name, a.ctprice ctprice, a.fin_time fin_time, a.state state, a.auctioncode auctioncode, a.name name, a.phone phone, ude.user_home user_home
+		from (select auc.au_name au_name, auc.ctprice ctprice, auc.fin_time fin_time, auc.state state, auc.auctioncode auctioncode, auc.fin_name fin_name, u.name name, u.phone phone
+ 				from auction auc, users u
+ 				where auc.fin_name = u.usercode(+) and auc.usercode=#{usercode})a, user_detail ude
+		where a.fin_name = ude.usercode(+)
+		order by state asc ,auctioncode desc
+	]]>
+ 	</select>
+ 	
+ 	<select id="myBid_list" resultType="com.mycompany.gofarm.mypage.dto.MyAuctionDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		SELECT auc.au_name au_name, auc.ctprice ctprice, auc.fin_time fin_time, auc.state state, auc.auctioncode auctioncode
+		FROM (SELECT AUTIONCODE, max(BR_DATE) 
+   		 		FROM (select * from au_recipe where br_user=#{usercode}) 
+   		 		GROUP by AUTIONCODE)a, auction auc
+		where a.autioncode=auc.auctioncode
+		order by state, auctioncode desc
+	]]>
+ 	</select>
+ 	
+ 	<select id="myDonation_list" resultType="com.mycompany.gofarm.mypage.dto.MyDonationDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select d.docode docode, d.do_product do_product, d.do_cnt do_cnt, (select count(DO_NAME) from do_condition doc where d.docode=doc.docode(+) and doc.state=0) app_cnt
+		from donation d 
+		where d.usercode=#{usercode}
+		order by do_cnt desc, docode desc
+	]]>
+ 	</select>
+ 	
+ 	<select id="myIndexCnt" resultType="com.mycompany.gofarm.mypage.dto.myIndexCntDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select (select mileage from USER_DETAIL where usercode = #{usercode}) mileage
+				,(select count(jk_usercode) from jobcheck where jobsearchcode = (select jobsearchcode from jobsearch where usercode = #{usercode})) jk_cnt
+				,(select count(de_code) from deal where prod_code in(select prod_code from product where usercode = #{usercode})) prod_cnt
+				,(select count(auctioncode) from auction where usercode = #{usercode} and state =0) auction_cnt
+		from dual
+	]]>
+ 	</select>
+ 	
+ 	<select id="myDailyMileage" resultType="com.mycompany.gofarm.mypage.dto.MileageDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select m_total, m_day 
+ 		from mileage 
+ 		where m_day in (
+ 			SELECT max(m_day)
+ 			FROM mileage
+ 			where usercode = #{usercode} and m_day BETWEEN sysdate-30 and sysdate
+ 			GROUP BY rollup (to_char(m_day, 'YYYY-MM-DD'))
+ 		)
+	]]>
+ 	</select>
+ 	
+ 	<select id="myBoardList" resultType="com.mycompany.gofarm.board.dto.BoardDTO"
+ 	 parameterType="int">
+ 	<![CDATA[
+ 		select boardcode, b_title, b_day,B_CATEGORY from board where usercode = #{usercode} order by b_day desc , boardcode desc
+	]]>
+ 	</select>
+ 	
+ 	<update id="userDetail_update" parameterType="com.mycompany.gofarm.user.dto.UserDTO">
+ 		update USER_DETAIL set bank = #{bank}, account = #{account}, user_home = #{user_home} where usercode=#{usercode}
+ 	</update>
+ 	
+ 	<update id="userDelete" parameterType="int">
+ 		update users set userlvl = -1 where usercode = #{usercode}
+ 	</update>
+ 	
+ 	
+ 	
+</mapper>

@@ -1,0 +1,17 @@
+<employee-list>
+
+	<employee>
+		<first-name>홍길동</first-name>
+		<email>XXXX</email>
+		<hire-date>XXX</hire-date>
+		<salary>xx</salary>
+	</employee>
+	
+	<employee>
+		<first-name>소시</first-name>
+		<email>XXXX</email>
+		<hire-date>XXX</hire-date>
+		<salary>xx</salary>
+	</employee>
+	
+</employee-list>
